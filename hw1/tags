@@ -1,0 +1,14 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+columnar_cipher_construction	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^def columnar_cipher_construction(keyword):$/;"	f	language:Python
+decrypted	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^    decrypted = simple_substitution_cipher_decrypt("MGAHWDKCZDLYUFMLLCMZCAVYIZKWHCD", mapping)$/;"	v	language:Python
+decrypted	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^    decrypted = simple_substitution_cipher_decrypt("RGQUNJWNJLDGUAETEOMNABORKGRYGMM", mapping)$/;"	v	language:Python
+decrypted	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^    decrypted = simple_substitution_cipher_decrypt("WSDBXLLUBWSDSUZFDUBZFSDA", mapping)$/;"	v	language:Python
+encrypted	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^    encrypted = simple_substitution_cipher("A FEW WORDS ON SECRET WRITING", mapping)$/;"	v	language:Python
+encrypted	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^    encrypted = simple_substitution_cipher("A TALE OF A FATEFUL TRIP", mapping)$/;"	v	language:Python
+encrypted	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^    encrypted = simple_substitution_cipher("CAPTAIN KIRK WAS IN ONE EPISODE", mapping)$/;"	v	language:Python
+keyword_cipher_construction	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^def keyword_cipher_construction(keyword):$/;"	f	language:Python
+mapping	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^    mapping = columnar_cipher_construction('MARSHALDILLON')$/;"	v	language:Python
+mapping	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^    mapping = keyword_cipher_construction("GILLIGAN")$/;"	v	language:Python
+mapping	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^    mapping = {'A' : 'X', 'B' : 'Q', 'C' : 'K','D' : 'M', 'E' : 'D', 'F' : 'B', 'G' : 'P', 'H' : 'S', 'I' : 'E', 'J' : 'T', 'K' : 'C', 'L' : 'L', 'M' : 'O', 'N' : 'R', 'O' : 'U', 'P' : 'J', 'Q' : 'V', 'R' : 'A', 'S' : 'F', 'T' : 'W', 'U' : 'Z', 'V' : 'G', 'W' : 'H', 'X' : 'N', 'Y' : 'I', 'Z' : 'Y'}$/;"	v	language:Python
+simple_substitution_cipher	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^def simple_substitution_cipher(message, mapping):$/;"	f	language:Python
+simple_substitution_cipher_decrypt	/home/sergio/CECS-378/hw1/simple_substitution_cipher.py	/^def simple_substitution_cipher_decrypt(message, mapping):$/;"	f	language:Python

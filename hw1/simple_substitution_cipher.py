@@ -23,38 +23,29 @@ def keyword_cipher_construction(keyword):
 
 def columnar_cipher_construction(keyword):
     cleansed = keyword.replace(' ', '')
+    cleansed = keyword.replace('.', '')
     cleansed = "".join(dict.fromkeys(cleansed))
-    letters = set(cleansed)
-    mapping = {}
-    rows = len(cleansed)
+    matrix = [[c for c in cleansed]]
+    values_not_used = [c for c in string.ascii_uppercase if c not in cleansed]
+    temp = []
     idx = 0
-    for c in string.ascii_uppercase:
-        if c in letters:
-            mapping[c] = idx
+    while idx < len(values_not_used):
+        temp.append(values_not_used[idx])
+        idx += 1
+        if len(temp) == len(matrix[0]):
+            matrix.append(temp[:])
+            temp = []
+    if len(temp) != 0:
+        matrix.append(temp[:])
+    transposed = [[row[i] for row in matrix] for i in range(len(matrix[0]))]
+    idx = 0
+    mapping = {}
+    for m in transposed:
+        for c in m:
+            mapping[string.ascii_uppercase[idx]] = c
             idx += 1
-    mapping_to_list = [mapping[c] for c in cleansed]
-    return mapping_to_list
+    return mapping
 
-def columnar_cipher_encryption(mapping, message):
-    cleansed = message.replace(' ', '')
-    rows_filled = len(cleansed) // len(mapping)
-    rows_partial = len(cleansed) % len(mapping)
-    if rows_partial % len(mapping) != 0:
-        rows_filled += 1
-    matrix = [[' ' for _ in range(len(mapping))] for _ in range(rows_filled)]
-    row_idx = 0
-    col_idx = 0
-    for c in cleansed:
-        matrix[row_idx][col_idx] = c
-        col_idx += 1
-        if col_idx > rows_filled:
-            col_idx = 0
-            row_idx = row_idx + 1
-    encrypted = [' ' for _ in range(len(mapping) * rows_filled)]
-    for row_idx, m in enumerate(matrix):
-        for col_idx, c in enumerate(m):
-            encrypted[(row_idx + 1) * mapping[col_idx] + (row_idx)] = c
-    return encrypted
 
 if __name__ == '__main__':
     # constructing mapping for cipher
@@ -72,6 +63,9 @@ if __name__ == '__main__':
     # problem 4
     decrypted = simple_substitution_cipher_decrypt("RGQUNJWNJLDGUAETEOMNABORKGRYGMM", mapping)
     print(decrypted)
-    mapping_to_list = columnar_cipher_construction("ZEBRAS")
-    encrypted = columnar_cipher_encryption(mapping_to_list, "WE ARE DISCOVERED FLEE AT ONCE")
+    # problem 5
+    mapping = columnar_cipher_construction('MARSHALDILLON')
+    encrypted = simple_substitution_cipher("CAPTAIN KIRK WAS IN ONE EPISODE", mapping)
     print(encrypted)
+    decrypted = simple_substitution_cipher_decrypt("MGAHWDKCZDLYUFMLLCMZCAVYIZKWHCD", mapping)
+    print(decrypted)
